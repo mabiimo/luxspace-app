@@ -10,12 +10,13 @@ class Cart extends Model
     use HasFactory;
 
     protected $fillable = [
-        'users_id', 'products_id'
+        'users_id', 'product_id' // Menambahkan 'product_id' ke dalam daftar fillable
     ];
 
+    // Definisi relasi ke Product
     public function product()
     {
-        return $this->hasOne(Product::class, 'id', 'products_id');
+        return $this->belongsTo(Product::class, 'product_id');
     }
 
     public function user()
